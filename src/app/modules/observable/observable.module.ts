@@ -9,6 +9,9 @@ import { BufferCountOperatorComponent } from "./pages/buffer-count-operator/buff
 import { BufferToggleOperatorComponent } from "./pages/buffer-toggle-operator/buffer-toggle-operator.component";
 import { BufferWhenOperatorComponent } from "./pages/buffer-when-operator/buffer-when-operator.component";
 import { OperatorsComponent } from "./pages/operators/operators.component";
+import { TakeOperatorComponent } from "./pages/take-operator/take-operator.component";
+import { ImageDownloaderComponent } from './pages/image-downloader/image-downloader.component';
+import { CommonModule } from "@angular/common";
 
 const components =[
   ObservableComponent,
@@ -18,16 +21,18 @@ const components =[
   BufferCountOperatorComponent,
   BufferToggleOperatorComponent,
   BufferWhenOperatorComponent,
-  OperatorsComponent
+  OperatorsComponent,
+  TakeOperatorComponent
 ]
 
 
 
 @NgModule({
   declarations:[
-    ...components
+    ...components,
+    ImageDownloaderComponent
   ],
-  imports:[ObservableRoutingModule],
+  imports:[ObservableRoutingModule, CommonModule],
   providers:[Observer4],
   exports:[
     ...components]

@@ -6,6 +6,7 @@ import { BufferOperatorComponent } from './pages/buffer-operator/buffer-operator
 import { BufferTimeOperatorComponent } from './pages/buffer-time-operator/buffer-time-operator.component';
 import { BufferToggleOperatorComponent } from './pages/buffer-toggle-operator/buffer-toggle-operator.component';
 import { BufferWhenOperatorComponent } from './pages/buffer-when-operator/buffer-when-operator.component';
+import { ImageDownloaderComponent } from './pages/image-downloader/image-downloader.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path:'buffertime', component:BufferTimeOperatorComponent},
       { path:'buffertoggle', component:BufferToggleOperatorComponent},
       { path:'bufferwhen', component:BufferWhenOperatorComponent},
+      { path:'image-download', component:ImageDownloaderComponent},
     ]
   }
 ];

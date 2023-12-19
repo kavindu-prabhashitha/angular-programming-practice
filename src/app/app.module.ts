@@ -7,7 +7,7 @@ import { ObservableModule } from './modules/observable/observable.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
 
   ],
   imports: [
