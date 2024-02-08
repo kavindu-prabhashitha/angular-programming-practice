@@ -6,6 +6,14 @@ const routes: Routes = [
   {
     path:'observables',
     loadChildren:()=>import('./modules/observable/observable.module').then(m=>m.ObservableModule)
+  },
+  {
+    path:'stepper',
+    loadChildren:()=>import('./modules/stepper/stepper.module').then(m=>m.StepperModule)
+  },
+  {
+    path:'forms',
+    loadChildren:()=>import('./modules/forms/forms.module').then(m=>m.FormsModule)
   }
 ];
 

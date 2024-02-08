@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="text-center mt-4">
+      <h2>Angular Stepper</h2>
+    </div>
+    <div class="col-md-9 mx-auto">
+      <form [formGroup]="empRegister">
+        <stepper-component [linearModeSelected]="false" #appStepper>
+          <cdk-step [label]="'Information'" ><app-information FormGroupName="basic"/></cdk-step>
+          <cdk-step [label]="'Contact'"><app-contact></app-contact></cdk-step>
+          <cdk-step [label]="'Security'"><app-security></app-security></cdk-step>
+          <cdk-step [label]="'Finished'"><app-finish></app-finish></cdk-step>
+        </stepper-component>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+

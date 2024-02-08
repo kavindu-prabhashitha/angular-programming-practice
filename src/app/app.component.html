@@ -11,4 +11,26 @@
 
 <!-- <app-cancelling-observable></app-cancelling-observable> -->
 
-<router-outlet></router-outlet>
+
+<div  style="display: flex">
+  <div style="flex: 1;border-right: 2px solid black;">
+    <div><h4>RXJS Operators</h4></div>
+    <ul>
+      <li><a routerLink="observables">Observables</a></li>
+
+    </ul>
+
+    <div><h4>Stepper Component</h4></div>
+    <ul>
+      <li><a routerLink="stepper">Stepper</a></li>
+    </ul>
+
+    <div><h4>Forms</h4></div>
+    <ul>
+      <li><a routerLink="forms">Template Form</a></li>
+    </ul>
+  </div>
+  <div style="flex: 4;padding: 20px">
+    <div><router-outlet></router-outlet></div>
+  </div>
+</div>
