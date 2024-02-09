@@ -32,6 +32,15 @@ export class ReactiveFormsDynamicComponent implements OnInit {
       hobbies: new FormArray([]),
       marks:new FormArray([])
     });
+
+    this.signUpForm.valueChanges.subscribe((value)=>{
+      console.log("value changes : ",value)
+    })
+
+    //status of each form individual form control your working on
+    this.signUpForm.statusChanges.subscribe((value)=>{
+      console.log("status changes : ",value)
+    })
   }
 
   onSubmit() {
@@ -81,6 +90,15 @@ export class ReactiveFormsDynamicComponent implements OnInit {
     })
 
     return promise
+  }
+
+  autoFillFormData(){
+    this.signUpForm.patchValue({
+      "userData":{
+        username:"KavinduPrabha",
+        "email":"kavindu@gmail.com"
+      }
+    })
   }
 
 }
