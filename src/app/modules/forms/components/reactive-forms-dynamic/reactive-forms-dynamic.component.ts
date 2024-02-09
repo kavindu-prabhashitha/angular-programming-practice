@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-reactive-forms-dynamic',
@@ -8,6 +9,7 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ReactiveFormsDynamicComponent implements OnInit {
   genders = ['male', 'female'];
+  restrictedNames=['Kavindu',"Don"];
   signUpForm: FormGroup = new FormGroup({});
 
   constructor() {}
@@ -23,8 +25,8 @@ export class ReactiveFormsDynamicComponent implements OnInit {
   ngOnInit(): void {
     this.signUpForm = new FormGroup({
       userData: new FormGroup({
-        username: new FormControl('', Validators.required),
-        email: new FormControl('', [Validators.email, Validators.required]),
+        username: new FormControl('',[Validators.required, this.isRestrictedNames.bind(this)]),
+        email: new FormControl('', [Validators.email, Validators.required],this.isRestrictedEmails),
       }),
       gender: new FormControl('male'),
       hobbies: new FormArray([]),
@@ -35,6 +37,8 @@ export class ReactiveFormsDynamicComponent implements OnInit {
   onSubmit() {
     console.log(this.signUpForm);
   }
+
+
 
   onAddHobby() {
     const control = new FormControl('', Validators.required);
@@ -55,4 +59,28 @@ export class ReactiveFormsDynamicComponent implements OnInit {
   onRemoveMarks(index:number){
     (<FormArray>this.signUpForm.get('marks')).removeAt(index);
   }
+
+
+  isRestrictedNames(control:FormControl):{[s:string]:boolean}|null{
+    if(this.restrictedNames.includes(control.value)){
+      return {nameIsRestricted:true};
+    }
+    return null;
+  }
+
+
+  isRestrictedEmails(control:AbstractControl):Promise<any>| Observable<any>{
+    let promise = new Promise((resolve,reject)=>{
+      setTimeout(()=>{
+        if(control.value === "test@gmail.com"){
+          resolve({emailIsRestricted:true})
+        }else{
+          resolve(null)
+        }
+      },3000)
+    })
+
+    return promise
+  }
+
 }

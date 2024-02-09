@@ -19,8 +19,10 @@
                 signUpForm.get('userData.username')?.touched
               "
             >
-              Please Enter Valid UserName
+            <span *ngIf="signUpForm.get('userData.username')?.errors?.['required']">User Name is Required</span>
+            <span *ngIf="signUpForm.get('userData.username')?.errors?.['nameIsRestricted']">User Name is Invalid</span>
             </span>
+
           </div>
           <div class="form-group">
             <label for="">Email</label>
@@ -32,7 +34,9 @@
                 !signUpForm.get('userData.email')?.valid &&
                 signUpForm.get('userData.email')?.touched
               "
-              >Please Enter Valid Email
+              >
+              <span *ngIf="signUpForm.get('userData.email')?.errors?.['required']">Email is Required</span>
+            <span *ngIf="signUpForm.get('userData.email')?.errors?.['emailIsRestricted']">Email is Invalid</span>
             </span>
           </div>
         </div>
