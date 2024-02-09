@@ -1,1 +1,48 @@
-<p>template-form works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-sm btn-info" (click)="fillValues()">Fill Values</button>
+      <form (ngSubmit)="onFormSubmit()" #f="ngForm">
+        <div ngModelGroup="userData" #userData="ngModelGroup">
+          <div *ngIf="!userData.valid && userData.touched">User Data is invalid!</div>
+          <div class="form-group">
+            <label for="username">User Name</label>
+            <input required type="text" class="form-control" id="username" name="username" ngModel #username="ngModel">
+            <span *ngIf="!username.valid && username.touched" class="help-text">Please enter userName</span>
+            <!-- <input required type="text" class="form-control" id="username" name="username" (input)="onInputChange()" ngModel> -->
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input required email type="text" class="form-control" id="email" name="email" ngModel>
+            <span *ngIf="f.controls['email'] && !f.controls['email'].valid && f.controls['email'].touched"
+              class="help-text">Please enter valid email</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select id="gender" class="form-control" name="gender" ngModel="female">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="gender">About</label>
+          <textarea name="about" class="form-control" id="" cols="30" rows="3" [(ngModel)]="about"></textarea>
+        </div>
+        <div>{{about}}</div>
+
+        <div class="mt-2">
+          <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="submitted">
+      <h3>Your data</h3>
+      <div>User : {{user.username}}</div>
+      <div>Email : {{user.email}}</div>
+      <div>Gender : {{user.gender}}</div>
+      <div>About : {{user.about}}</div>
+    </div>
+  </div>
+</div>

@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path:'forms',
-    loadChildren:()=>import('./modules/forms/forms.module').then(m=>m.FormsModule)
+    loadChildren:()=>import('./modules/forms/template-forms.module').then(m=>m.TemplateFormsModule)
   }
 ];
 
