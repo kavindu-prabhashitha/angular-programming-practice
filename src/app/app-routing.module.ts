@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path:'forms',
     loadChildren:()=>import('./modules/forms/template-forms.module').then(m=>m.TemplateFormsModule)
+  },
+  {
+    path:'navbar',
+    loadChildren:()=>import('./modules/navbar/navbar.module').then(m=>m.NavbarModule)
   }
 ];
 

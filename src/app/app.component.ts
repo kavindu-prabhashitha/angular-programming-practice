@@ -1,6 +1,8 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { fromEvent } from 'rxjs';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,4 +22,7 @@ export class AppComponent implements AfterViewInit{
     )
   }
   title = 'angular-programming-practice';
+
+
+
 }
